@@ -11,6 +11,7 @@ function Feed() {
     //pull the ig clone backend photos from localHost 5001
     useEffect(
         () => {
+            // fect URL
             fetch('http://localhost:5001/photos')
             .then(res => res.json())
             .then((data: Photo[]) => {
@@ -25,7 +26,7 @@ function Feed() {
         <h1>The Feed</h1>
         <div>
             {photos.map((photo: Photo) => {
-                return <PhotoView key={photo._id} photo={photo} />
+                return <PhotoView key={photo._id} photo={photo} setPhotos={setPhotos} />
                 // return <div><img src={photo.photoUrl} /></div>
             })
             }
